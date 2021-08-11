@@ -11,7 +11,7 @@ struct Game {
     ~Game();
     void printGame();
     Game* getPlayer1();
-    Game* fetPlayer2();
+    Game* getPlayer2();
 };
 
 #endif

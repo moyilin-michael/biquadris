@@ -41,3 +41,11 @@ void Game::printGame(){
     player2->printNext2();
     cout << endl;
 }
+
+Game* Game::getPlayer1() {
+    return player1;
+}
+
+Game* Game::getPlayer2() {
+    return player2;
+}

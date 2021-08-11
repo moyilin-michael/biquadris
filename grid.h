@@ -22,6 +22,8 @@ struct Grid {
     void down();
     void drop();
     void compScore();
+    void printNext1();
+    void printNext2();
 };
 
 #endif

@@ -2,8 +2,8 @@
 #define _CELL_H_
 #include <string>
 
-struct Pizza {
-  virtual ~Pizza();
+struct Cell {
+  virtual ~Cell();
 };
 
 #endif

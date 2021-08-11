@@ -20,11 +20,21 @@ void Game::printGame(){
     cout << "***********     ***********" << endl;
     for (int row = 0; row < 15; row++) {
         for (int col1 = 0; col1 < 11; col1++) {
-            cout << player1->grid[row * 11 + col1].c;
+            if (player1->grid[row * 11 + col1]->c == 'N') {
+                cout << ' ';
+            }
+            else {
+                cout << player1->grid[row * 11 + col1]->c;
+            }
         }
         cout << "     ";
         for (int col2 = 0; col2 < 11; col2++) {
-            cout << player1->grid[row * 11 + col2].c;
+           if (player2->grid[row * 11 + col2]->c == 'N') {
+                cout << ' ';
+            }
+            else {
+                cout << player2->grid[row * 11 + col2]->c;
+            }
         }
         cout << endl;
     }

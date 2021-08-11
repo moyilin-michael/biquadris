@@ -20,11 +20,16 @@ struct Grid {
     ~Grid();
     void initialize();
     int setDefault();
+    bool ifleft();
+    bool ifright();
+    bool ifdown();
     void left();
     void right();
     void down();
     void drop();
-    void compScore();
+    void rowScore();
+    void rowsDelete();
+    void update();
     void printNext1();
     void printNext2();
 };

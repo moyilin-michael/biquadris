@@ -42,10 +42,22 @@ void Grid::initialize() {
 int Grid::setDefault() {
     if (curblock == 'I') {
         if (grid[33]->c = 'N' && grid[34]->c = 'N' && grid[35]->c = 'N' && grid[36]->c = 'N') {
-            grid[33]->c = 'I';
-            grid[34]->c = 'I';
-            grid[35]->c = 'I';
-            grid[36]->c = 'I';
+            grid[33] = new BlockCell(grid[33], 'I');
+            grid[34] = new BlockCell(grid[34], 'I');
+            grid[35] = new BlockCell(grid[35], 'I');
+            grid[36] = new BlockCell(grid[36], 'I');
+            (grid[33]->friends).push_back(grid[34]);
+            (grid[33]->friends).push_back(grid[35]);
+            (grid[33]->friends).push_back(grid[36]);
+            (grid[34]->friends).push_back(grid[33]);
+            (grid[34]->friends).push_back(grid[35]);
+            (grid[34]->friends).push_back(grid[36]);
+            (grid[35]->friends).push_back(grid[33]);
+            (grid[35]->friends).push_back(grid[34]);
+            (grid[35]->friends).push_back(grid[36]);
+            (grid[36]->friends).push_back(grid[33]);
+            (grid[36]->friends).push_back(grid[34]);
+            (grid[36]->friends).push_back(grid[35]);
             blockpos[0] = std::pair<int, int>(3, 0);
             blockpos[1] = std::pair<int, int>(3, 1);
             blockpos[2] = std::pair<int, int>(3, 2);
@@ -58,10 +70,22 @@ int Grid::setDefault() {
     }
     else if (curblock == 'J') {
         if (grid[33]->c = 'N' && grid[44]->c = 'N' && grid[45]->c = 'N' && grid[46]->c = 'N') {
-            grid[33]->c = 'J';
-            grid[44]->c = 'J';
-            grid[45]->c = 'J';
-            grid[46]->c = 'J';
+            grid[33] = new BlockCell(grid[33], 'J');
+            grid[44] = new BlockCell(grid[44], 'J');
+            grid[45] = new BlockCell(grid[45], 'J');
+            grid[46] = new BlockCell(grid[46], 'J');
+            (grid[33]->friends).push_back(grid[44]);
+            (grid[33]->friends).push_back(grid[45]);
+            (grid[33]->friends).push_back(grid[46]);
+            (grid[44]->friends).push_back(grid[33]);
+            (grid[44]->friends).push_back(grid[45]);
+            (grid[44]->friends).push_back(grid[46]);
+            (grid[45]->friends).push_back(grid[33]);
+            (grid[45]->friends).push_back(grid[44]);
+            (grid[45]->friends).push_back(grid[46]);
+            (grid[46]->friends).push_back(grid[33]);
+            (grid[46]->friends).push_back(grid[44]);
+            (grid[46]->friends).push_back(grid[45]);
             blockpos[0] = std::pair<int, int>(4, 0);
             blockpos[1] = std::pair<int, int>(3, 0);
             blockpos[2] = std::pair<int, int>(4, 1);
@@ -74,10 +98,22 @@ int Grid::setDefault() {
     }
     else if (curblock == 'L') {
         if (grid[44]->c = 'N' && grid[45]->c = 'N' && grid[46]->c = 'N' && grid[35]->c = 'N') {
-            grid[44]->c = 'L';
-            grid[45]->c = 'L';
-            grid[46]->c = 'L';
-            grid[35]->c = 'L';
+            grid[44] = new BlockCell(grid[44], 'L');
+            grid[45] = new BlockCell(grid[45], 'L');
+            grid[46] = new BlockCell(grid[46], 'L');
+            grid[35] = new BlockCell(grid[35], 'L');
+            (grid[44]->friends).push_back(grid[45]);
+            (grid[44]->friends).push_back(grid[46]);
+            (grid[44]->friends).push_back(grid[35]);
+            (grid[45]->friends).push_back(grid[44]);
+            (grid[45]->friends).push_back(grid[46]);
+            (grid[45]->friends).push_back(grid[35]);
+            (grid[46]->friends).push_back(grid[44]);
+            (grid[46]->friends).push_back(grid[45]);
+            (grid[46]->friends).push_back(grid[35]);
+            (grid[35]->friends).push_back(grid[44]);
+            (grid[35]->friends).push_back(grid[45]);
+            (grid[35]->friends).push_back(grid[46]);
             blockpos[0] = std::pair<int, int>(4, 0);
             blockpos[1] = std::pair<int, int>(4, 1);
             blockpos[2] = std::pair<int, int>(4, 2);
@@ -90,10 +126,22 @@ int Grid::setDefault() {
     }
     else if (curblock == 'O') {
         if (grid[44]->c = 'N' && grid[33]->c = 'N' && grid[45]->c = 'N' && grid[34]->c = 'N') {
-            grid[44]->c = 'O';
-            grid[33]->c = 'O';
-            grid[45]->c = 'O';
-            grid[34]->c = 'O';
+            grid[44] = new BlockCell(grid[44], 'O');
+            grid[33] = new BlockCell(grid[33], 'O');
+            grid[45] = new BlockCell(grid[45], 'O');
+            grid[34] = new BlockCell(grid[34], 'O');
+            (grid[44]->friends).push_back(grid[33]);
+            (grid[44]->friends).push_back(grid[45]);
+            (grid[44]->friends).push_back(grid[34]);
+            (grid[33]->friends).push_back(grid[44]);
+            (grid[33]->friends).push_back(grid[45]);
+            (grid[33]->friends).push_back(grid[34]);
+            (grid[45]->friends).push_back(grid[44]);
+            (grid[45]->friends).push_back(grid[33]);
+            (grid[45]->friends).push_back(grid[34]);
+            (grid[34]->friends).push_back(grid[44]);
+            (grid[34]->friends).push_back(grid[33]);
+            (grid[34]->friends).push_back(grid[45]);
             blockpos[0] = std::pair<int, int>(4, 0);
             blockpos[1] = std::pair<int, int>(3, 0);
             blockpos[2] = std::pair<int, int>(4, 1);
@@ -106,10 +154,22 @@ int Grid::setDefault() {
     }
     else if (curblock == 'S') {
         if (grid[44]->c = 'N' && grid[45]->c = 'N' && grid[34]->c = 'N' && grid[35]->c = 'N') {
-            grid[44]->c = 'S';
-            grid[45]->c = 'S';
-            grid[34]->c = 'S';
-            grid[35]->c = 'S';
+            grid[44] = new BlockCell(grid[44], 'S');
+            grid[45] = new BlockCell(grid[45], 'S');
+            grid[34] = new BlockCell(grid[34], 'S');
+            grid[35] = new BlockCell(grid[35], 'S');
+            (grid[44]->friends).push_back(grid[45]);
+            (grid[44]->friends).push_back(grid[34]);
+            (grid[44]->friends).push_back(grid[35]);
+            (grid[45]->friends).push_back(grid[44]);
+            (grid[45]->friends).push_back(grid[34]);
+            (grid[45]->friends).push_back(grid[35]);
+            (grid[34]->friends).push_back(grid[44]);
+            (grid[34]->friends).push_back(grid[45]);
+            (grid[34]->friends).push_back(grid[35]);
+            (grid[35]->friends).push_back(grid[44]);
+            (grid[35]->friends).push_back(grid[45]);
+            (grid[35]->friends).push_back(grid[34]);
             blockpos[0] = std::pair<int, int>(4, 0);
             blockpos[1] = std::pair<int, int>(4, 1);
             blockpos[2] = std::pair<int, int>(3, 1);
@@ -122,10 +182,22 @@ int Grid::setDefault() {
     }
     else if (curblock == 'Z') {
         if (grid[33]->c = 'N' && grid[45]->c = 'N' && grid[34]->c = 'N' && grid[46]->c = 'N') {
-            grid[33]->c = 'Z';
-            grid[45]->c = 'Z';
-            grid[34]->c = 'Z';
-            grid[46]->c = 'Z';
+            grid[33] = new BlockCell(grid[33], 'Z');
+            grid[45] = new BlockCell(grid[45], 'Z');
+            grid[34] = new BlockCell(grid[34], 'Z');
+            grid[46] = new BlockCell(grid[46], 'Z');
+            (grid[33]->friends).push_back(grid[45]);
+            (grid[33]->friends).push_back(grid[34]);
+            (grid[33]->friends).push_back(grid[46]);
+            (grid[45]->friends).push_back(grid[33]);
+            (grid[45]->friends).push_back(grid[34]);
+            (grid[45]->friends).push_back(grid[46]);
+            (grid[34]->friends).push_back(grid[33]);
+            (grid[34]->friends).push_back(grid[45]);
+            (grid[34]->friends).push_back(grid[46]);
+            (grid[46]->friends).push_back(grid[33]);
+            (grid[46]->friends).push_back(grid[45]);
+            (grid[46]->friends).push_back(grid[34]);
             blockpos[0] = std::pair<int, int>(3, 0);
             blockpos[1] = std::pair<int, int>(4, 1);
             blockpos[2] = std::pair<int, int>(3, 1);
@@ -138,10 +210,22 @@ int Grid::setDefault() {
     }
     else if (curblock == 'J') {
         if (grid[33]->c = 'N' && grid[45]->c = 'N' && grid[34]->c = 'N' && grid[35]->c = 'N') {
-            grid[33]->c = 'T';
-            grid[45]->c = 'T';
-            grid[34]->c = 'T';
-            grid[35]->c = 'T';
+            grid[33] = new BlockCell(grid[33], 'L');
+            grid[45] = new BlockCell(grid[45], 'L');
+            grid[34] = new BlockCell(grid[34], 'L');
+            grid[35] = new BlockCell(grid[35], 'L');
+            (grid[33]->friends).push_back(grid[45]);
+            (grid[33]->friends).push_back(grid[34]);
+            (grid[33]->friends).push_back(grid[35]);
+            (grid[45]->friends).push_back(grid[33]);
+            (grid[45]->friends).push_back(grid[34]);
+            (grid[45]->friends).push_back(grid[35]);
+            (grid[34]->friends).push_back(grid[33]);
+            (grid[34]->friends).push_back(grid[45]);
+            (grid[34]->friends).push_back(grid[35]);
+            (grid[35]->friends).push_back(grid[33]);
+            (grid[35]->friends).push_back(grid[45]);
+            (grid[35]->friends).push_back(grid[34]);
             blockpos[0] = std::pair<int, int>(3, 0);
             blockpos[1] = std::pair<int, int>(4, 1);
             blockpos[2] = std::pair<int, int>(3, 1);

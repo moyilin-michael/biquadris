@@ -8,14 +8,17 @@
 
 struct Grid {
     string infile;
+    int index;
     int score;
     int level;
     char curblock;
     char nextblock;
     std::vector<std::pair<int, int>>blockpos;
-    vector<Cell*>grid;
-    Grid();
+    std::vector<Cell*>grid;
+    std::vector<char>sequence;
+    Grid(string file);
     ~Grid();
+    void initialize();
     int setDefault();
     void left();
     void right();

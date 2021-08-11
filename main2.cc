@@ -19,7 +19,7 @@ using namespace std;
 int main(int argc, char *argv[])
 {
 	int turn = 1;
-	Game *game = new Game();
+	Game* game = new Game();
 	string scriptfile1 = "";
 	string scriptfile2 = "";
 	Grid *player1 = game->getPlayer1();

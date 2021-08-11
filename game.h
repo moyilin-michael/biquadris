@@ -4,8 +4,8 @@
 #include "grid.h"
 
 struct Game {
-    Grid player1;
-    Grid player2;
+    Grid* player1;
+    Grid* player2;
     int hi;
     ~Game();
 };

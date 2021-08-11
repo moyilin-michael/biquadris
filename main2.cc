@@ -35,6 +35,8 @@ int main(int argc, char *argv[])
 			if (argv[start] == "-scriptfile1")
 			{
 				scriptfile1 = argv[start + 1];
+				player1->infile = scriptfile1;
+				start++;
 				/*player1->cLevel->updateSeq(scriptfile1);
 				player1->setcurrentblock(player1->cLevel->currentc);
 				player1->setnextblock(player1->cLevel->nextc); */
@@ -43,6 +45,8 @@ int main(int argc, char *argv[])
 			if (argv[start] == "-scriptfile2")
 			{
 				scriptfile2 = argv[start + 1];
+				player2->infile = scriptfile2;
+				start++;
 				/*player2->cLevel->updateSeq(scriptfile2);	//
                     player2->setcurrentblock(player2->cLevel->currentc);
                     player2->setnextblock(player2->cLevel->nextc); */

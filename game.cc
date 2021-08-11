@@ -3,8 +3,8 @@
 using namespace std;
 
 Game::Game() {
-    player1 = new Grid;
-    player2 = new Grid;
+    player1 = new Grid("sequence1.txt");
+    player2 = new Grid("sequence2.txt");
     hi = 0;
 }
 

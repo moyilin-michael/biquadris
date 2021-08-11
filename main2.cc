@@ -24,9 +24,6 @@ int main(int argc, char *argv[])
 	string scriptfile2 = "";
 	Grid *player1 = game->getPlayer1();
 	Grid *player2 = game->getPlayer2();
-	time_t seed = 1;
-	bool iftext = false;
-	bool win = false;
 
 	if (argc >= 2)
 	{
@@ -64,13 +61,17 @@ int main(int argc, char *argv[])
 				seed = stoi(argv[counter + 1]);
 			}*/
 
-			if (argv[start] == "-text")
+			/*if (argv[start] == "-text")
 			{
 				iftext = true;
-			}
+			}*/
 		}
 	}
-
+	
+	player1->initialize();
+	player2->initialize();
+	player1->setDefault();
+	player2->setDefault();
 	game->printGame();
 	string strans;
 	std::vector<string> lst;
@@ -153,12 +154,12 @@ int main(int argc, char *argv[])
 					{
 						if (turn == 1)
 						{
-							player1->move_left();
+							player1->left();
 							g->printGame();
 						}
 						else
 						{
-							player2->move_left();
+							player2->left();
 							g->printGame();
 						}
 					}
@@ -207,12 +208,12 @@ int main(int argc, char *argv[])
 					{
 						if (turn == 1)
 						{
-							player1->move_right();
+							player1->right();
 							game->printGame();
 						}
 						else
 						{
-							player2->move_right();
+							player2->right();
 							game->printGame();
 						}
 					}
@@ -224,6 +225,10 @@ int main(int argc, char *argv[])
 						Grid *player1 = game->getPlayer1();
 						Grid *player2 = game->getPlayer2();
 						turn = 1;
+						player1->initialize();
+	                                        player2->initialize();
+	                                        player1->setDefault();
+	                                        player2->setDefault();
 						game->printGame();
 					}
 				}
@@ -238,12 +243,12 @@ int main(int argc, char *argv[])
 					{
 						if (turn == 1)
 						{
-							player1->move_down();
+							player1->down();
 							game->printGame();
 						}
 						else
 						{
-							player2->move_down();
+							player2->down();
 							game->printGame();
 						}
 					}
@@ -252,20 +257,43 @@ int main(int argc, char *argv[])
 						if (turn == 1)
 						{
 							player1->drop();
+							player1->rowScore();
+							player1->rowsDelete();
+							player1->update();
+							int n = player1->setDefault();
+							if (n == 0) {
+								string winmessage = "Game is over - Player 2 wins!";
+				                                cout << winmessage << std::endl;
+				                                delete game;
+				                                game = nullptr;
+								return;
+							}
 							turn = 2;
 							game->printGame();	//
 						}
 						else
 						{
 							player2->drop();
+							player2->rowScore();
+							player2->rowsDelete();
+							player2->update();
+							int m = player2->setDefault();
+							if (m == 0) {
+								string winmessage = "Game is over - Player 1 wins!";
+				                                cout << winmessage << std::endl;
+				                                delete game;
+				                                game = nullptr;
+								return;
+							}
 							turn = 1;
 							game->printGame();	//
 						}
 					}
 				}
 			}
-
-			if (player1->checklose() == true)
+			
+			
+			/*if (player1->checklose() == true)
 			{
 				string winmessage = "Game is over - Player 2 wins!";
 				cout << winmessage << std::endl;
@@ -282,15 +310,9 @@ int main(int argc, char *argv[])
 				game = nullptr;
 				win = true;
 				break;
-			}
+			}*/
 			i++;
 		}
-		if (win == true) {
-		    break;
-		}
-	}
-	if (game != nullptr) {
-	    delete game;
-	    game = nullptr;
+		lst.clear();
 	}
 }

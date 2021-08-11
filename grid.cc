@@ -8,7 +8,7 @@ Grid::Grid(string file) {
     score = 0;
     level = 0;
     for (int i = 0; i < 11 * 18; ++i) {
-        grid.push_back(New Cell);
+        grid.push_back(New BaseCell);
     }
 }
 

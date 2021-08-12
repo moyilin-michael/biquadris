@@ -1,5 +1,8 @@
 #include <iostream>
+#include <fstream>
+#include <sstream>
 #include "grid.h"
+#include "BlockCell.h"
 using namespace std;
 
 Grid::Grid(string file) {
@@ -8,7 +11,7 @@ Grid::Grid(string file) {
     score = 0;
     level = 0;
     for (int i = 0; i < 11 * 18; ++i) {
-        grid.push_back(New BaseCell);
+        grid.push_back(new BaseCell);
     }
 }
 
@@ -40,14 +43,22 @@ void Grid::initialize() {
 }
 
 int Grid::setDefault() {
-    if (curblock == 'I') {
-        if (grid[33]->c = 'N' && grid[34]->c = 'N' && grid[35]->c = 'N' && grid[36]->c = 'N') {
+	cout << curblock << endl;
+	grid[44] = new BlockCell(grid[44], 'I');
+	grid[45] = new BlockCell(grid[45], 'I');
+	//grid[46] = new Decorator(grid[44]);
+	grid[44]->friends.push_back(grid[45]);
+	//blockpos[0].first = 4;
+	//blockpos[0].second = 0;
+	return 1;
+   /* if (curblock == 'I') {
+        if (grid[33]->c == 'N' && grid[34]->c == 'N' && grid[35]->c == 'N' && grid[36]->c == 'N') {
             grid[33] = new BlockCell(grid[33], 'I');
             grid[34] = new BlockCell(grid[34], 'I');
             grid[35] = new BlockCell(grid[35], 'I');
             grid[36] = new BlockCell(grid[36], 'I');
-            (grid[33]->friends).push_back(grid[34]);
-            (grid[33]->friends).push_back(grid[35]);
+            grid[33]->friends.push_back(grid[34]);
+            grid[33]->friends.push_back(grid[35]);
             (grid[33]->friends).push_back(grid[36]);
             (grid[34]->friends).push_back(grid[33]);
             (grid[34]->friends).push_back(grid[35]);
@@ -69,7 +80,7 @@ int Grid::setDefault() {
         }
     }
     else if (curblock == 'J') {
-        if (grid[33]->c = 'N' && grid[44]->c = 'N' && grid[45]->c = 'N' && grid[46]->c = 'N') {
+        if (grid[33]->c == 'N' && grid[44]->c == 'N' && grid[45]->c == 'N' && grid[46]->c == 'N') {
             grid[33] = new BlockCell(grid[33], 'J');
             grid[44] = new BlockCell(grid[44], 'J');
             grid[45] = new BlockCell(grid[45], 'J');
@@ -97,7 +108,7 @@ int Grid::setDefault() {
         }
     }
     else if (curblock == 'L') {
-        if (grid[44]->c = 'N' && grid[45]->c = 'N' && grid[46]->c = 'N' && grid[35]->c = 'N') {
+        if (grid[44]->c == 'N' && grid[45]->c == 'N' && grid[46]->c == 'N' && grid[35]->c == 'N') {
             grid[44] = new BlockCell(grid[44], 'L');
             grid[45] = new BlockCell(grid[45], 'L');
             grid[46] = new BlockCell(grid[46], 'L');
@@ -125,7 +136,7 @@ int Grid::setDefault() {
         }
     }
     else if (curblock == 'O') {
-        if (grid[44]->c = 'N' && grid[33]->c = 'N' && grid[45]->c = 'N' && grid[34]->c = 'N') {
+        if (grid[44]->c == 'N' && grid[33]->c == 'N' && grid[45]->c == 'N' && grid[34]->c == 'N') {
             grid[44] = new BlockCell(grid[44], 'O');
             grid[33] = new BlockCell(grid[33], 'O');
             grid[45] = new BlockCell(grid[45], 'O');
@@ -153,7 +164,7 @@ int Grid::setDefault() {
         }
     }
     else if (curblock == 'S') {
-        if (grid[44]->c = 'N' && grid[45]->c = 'N' && grid[34]->c = 'N' && grid[35]->c = 'N') {
+        if (grid[44]->c == 'N' && grid[45]->c == 'N' && grid[34]->c == 'N' && grid[35]->c == 'N') {
             grid[44] = new BlockCell(grid[44], 'S');
             grid[45] = new BlockCell(grid[45], 'S');
             grid[34] = new BlockCell(grid[34], 'S');
@@ -181,7 +192,7 @@ int Grid::setDefault() {
         }
     }
     else if (curblock == 'Z') {
-        if (grid[33]->c = 'N' && grid[45]->c = 'N' && grid[34]->c = 'N' && grid[46]->c = 'N') {
+        if (grid[33]->c == 'N' && grid[45]->c == 'N' && grid[34]->c == 'N' && grid[46]->c == 'N') {
             grid[33] = new BlockCell(grid[33], 'Z');
             grid[45] = new BlockCell(grid[45], 'Z');
             grid[34] = new BlockCell(grid[34], 'Z');
@@ -208,12 +219,12 @@ int Grid::setDefault() {
             return 0;
         }
     }
-    else if (curblock == 'J') {
-        if (grid[33]->c = 'N' && grid[45]->c = 'N' && grid[34]->c = 'N' && grid[35]->c = 'N') {
-            grid[33] = new BlockCell(grid[33], 'L');
-            grid[45] = new BlockCell(grid[45], 'L');
-            grid[34] = new BlockCell(grid[34], 'L');
-            grid[35] = new BlockCell(grid[35], 'L');
+    else if (curblock == 'T') {
+        if (grid[33]->c == 'N' && grid[45]->c == 'N' && grid[34]->c == 'N' && grid[35]->c == 'N') {
+            grid[33] = new BlockCell(grid[33], 'T');
+            grid[45] = new BlockCell(grid[45], 'T');
+            grid[34] = new BlockCell(grid[34], 'T');
+            grid[35] = new BlockCell(grid[35], 'T');
             (grid[33]->friends).push_back(grid[45]);
             (grid[33]->friends).push_back(grid[34]);
             (grid[33]->friends).push_back(grid[35]);
@@ -238,7 +249,7 @@ int Grid::setDefault() {
     }
     else {
         return 0;
-    }
+    }*/
 }
 
 bool Grid::ifleft() {
@@ -407,13 +418,20 @@ void Grid::rowScore() {
 
 void Grid::rowDelete(int num) {
     for (int i = 0; i < 11; ++i) {
-        if (Grid[num * 11 + i]->friends[0] == nullptr && Grid[num * 11 + i]->friends[1] == nullptr
-        && Grid[num * 11 + i]->friends[2] == nullptr) {
+        if (grid[num * 11 + i]->friends[0] == nullptr && grid[num * 11 + i]->friends[1] == nullptr
+        && grid[num * 11 + i]->friends[2] == nullptr) {
             score+=1;
         }
         for (int x = 0; x < 3; ++x) {
-            if (Grid[num * 11 + i]->friends[x] != nullptr) {
-                Grid[num * 11 + i]->friends[x]->notify(Grid[num * 11 + i]);
+            if (grid[num * 11 + i]->friends[x] != nullptr) {
+		    if(!(grid[num * 11 + i]->friends[x]->friends.empty())) {
+			    for (int y = 0; y < 3; ++y) {
+				    if (grid[num * 11 + i]->friends[x]->friends[y] == grid[num * 11 + i]) {
+					    grid[num * 11 + i]->friends[x]->friends[y] = nullptr;
+				    }
+			    }
+		    }
+               // grid[num * 11 + i]->friends[x]->notify(grid[num * 11 + i]);
             }
         }
         for (int j = num - 1; j >= 3; --j) {

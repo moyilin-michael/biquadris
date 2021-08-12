@@ -47,28 +47,28 @@ int Grid::setDefault() {
 	grid[44] = new BlockCell(grid[44], 'I');
 	grid[45] = new BlockCell(grid[45], 'I');
 	//grid[46] = new Decorator(grid[44]);
-	grid[44]->friends.push_back(grid[45]);
+	grid[44]->getFriends().push_back(grid[45]);
 	//blockpos[0].first = 4;
 	//blockpos[0].second = 0;
 	return 1;
    /* if (curblock == 'I') {
-        if (grid[33]->c == 'N' && grid[34]->c == 'N' && grid[35]->c == 'N' && grid[36]->c == 'N') {
+        if (grid[33]->returnType() == 'N' && grid[34]->returnType() == 'N' && grid[35]->returnType() == 'N' && grid[36]->returnType() == 'N') {
             grid[33] = new BlockCell(grid[33], 'I');
             grid[34] = new BlockCell(grid[34], 'I');
             grid[35] = new BlockCell(grid[35], 'I');
             grid[36] = new BlockCell(grid[36], 'I');
-            grid[33]->friends.push_back(grid[34]);
-            grid[33]->friends.push_back(grid[35]);
-            (grid[33]->friends).push_back(grid[36]);
-            (grid[34]->friends).push_back(grid[33]);
-            (grid[34]->friends).push_back(grid[35]);
-            (grid[34]->friends).push_back(grid[36]);
-            (grid[35]->friends).push_back(grid[33]);
-            (grid[35]->friends).push_back(grid[34]);
-            (grid[35]->friends).push_back(grid[36]);
-            (grid[36]->friends).push_back(grid[33]);
-            (grid[36]->friends).push_back(grid[34]);
-            (grid[36]->friends).push_back(grid[35]);
+            grid[33]->getFriends().push_back(grid[34]);
+            grid[33]->getFriends().push_back(grid[35]);
+            (grid[33]->getFriends()).push_back(grid[36]);
+            (grid[34]->getFriends()).push_back(grid[33]);
+            (grid[34]->getFriends()).push_back(grid[35]);
+            (grid[34]->getFriends()).push_back(grid[36]);
+            (grid[35]->getFriends()).push_back(grid[33]);
+            (grid[35]->getFriends()).push_back(grid[34]);
+            (grid[35]->getFriends()).push_back(grid[36]);
+            (grid[36]->getFriends()).push_back(grid[33]);
+            (grid[36]->getFriends()).push_back(grid[34]);
+            (grid[36]->getFriends()).push_back(grid[35]);
             blockpos[0] = std::pair<int, int>(3, 0);
             blockpos[1] = std::pair<int, int>(3, 1);
             blockpos[2] = std::pair<int, int>(3, 2);
@@ -80,23 +80,23 @@ int Grid::setDefault() {
         }
     }
     else if (curblock == 'J') {
-        if (grid[33]->c == 'N' && grid[44]->c == 'N' && grid[45]->c == 'N' && grid[46]->c == 'N') {
+        if (grid[33]->returnType() == 'N' && grid[44]->returnType() == 'N' && grid[45]->returnType() == 'N' && grid[46]->returnType() == 'N') {
             grid[33] = new BlockCell(grid[33], 'J');
             grid[44] = new BlockCell(grid[44], 'J');
             grid[45] = new BlockCell(grid[45], 'J');
             grid[46] = new BlockCell(grid[46], 'J');
-            (grid[33]->friends).push_back(grid[44]);
-            (grid[33]->friends).push_back(grid[45]);
-            (grid[33]->friends).push_back(grid[46]);
-            (grid[44]->friends).push_back(grid[33]);
-            (grid[44]->friends).push_back(grid[45]);
-            (grid[44]->friends).push_back(grid[46]);
-            (grid[45]->friends).push_back(grid[33]);
-            (grid[45]->friends).push_back(grid[44]);
-            (grid[45]->friends).push_back(grid[46]);
-            (grid[46]->friends).push_back(grid[33]);
-            (grid[46]->friends).push_back(grid[44]);
-            (grid[46]->friends).push_back(grid[45]);
+            (grid[33]->getFriends()).push_back(grid[44]);
+            (grid[33]->getFriends()).push_back(grid[45]);
+            (grid[33]->getFriends()).push_back(grid[46]);
+            (grid[44]->getFriends()).push_back(grid[33]);
+            (grid[44]->getFriends()).push_back(grid[45]);
+            (grid[44]->getFriends()).push_back(grid[46]);
+            (grid[45]->getFriends()).push_back(grid[33]);
+            (grid[45]->getFriends()).push_back(grid[44]);
+            (grid[45]->getFriends()).push_back(grid[46]);
+            (grid[46]->getFriends()).push_back(grid[33]);
+            (grid[46]->getFriends()).push_back(grid[44]);
+            (grid[46]->getFriends()).push_back(grid[45]);
             blockpos[0] = std::pair<int, int>(4, 0);
             blockpos[1] = std::pair<int, int>(3, 0);
             blockpos[2] = std::pair<int, int>(4, 1);
@@ -108,23 +108,23 @@ int Grid::setDefault() {
         }
     }
     else if (curblock == 'L') {
-        if (grid[44]->c == 'N' && grid[45]->c == 'N' && grid[46]->c == 'N' && grid[35]->c == 'N') {
+        if (grid[44]->returnType() == 'N' && grid[45]->returnType() == 'N' && grid[46]->returnType() == 'N' && grid[35]->returnType() == 'N') {
             grid[44] = new BlockCell(grid[44], 'L');
             grid[45] = new BlockCell(grid[45], 'L');
             grid[46] = new BlockCell(grid[46], 'L');
             grid[35] = new BlockCell(grid[35], 'L');
-            (grid[44]->friends).push_back(grid[45]);
-            (grid[44]->friends).push_back(grid[46]);
-            (grid[44]->friends).push_back(grid[35]);
-            (grid[45]->friends).push_back(grid[44]);
-            (grid[45]->friends).push_back(grid[46]);
-            (grid[45]->friends).push_back(grid[35]);
-            (grid[46]->friends).push_back(grid[44]);
-            (grid[46]->friends).push_back(grid[45]);
-            (grid[46]->friends).push_back(grid[35]);
-            (grid[35]->friends).push_back(grid[44]);
-            (grid[35]->friends).push_back(grid[45]);
-            (grid[35]->friends).push_back(grid[46]);
+            (grid[44]->getFriends()).push_back(grid[45]);
+            (grid[44]->getFriends()).push_back(grid[46]);
+            (grid[44]->getFriends()).push_back(grid[35]);
+            (grid[45]->getFriends()).push_back(grid[44]);
+            (grid[45]->getFriends()).push_back(grid[46]);
+            (grid[45]->getFriends()).push_back(grid[35]);
+            (grid[46]->getFriends()).push_back(grid[44]);
+            (grid[46]->getFriends()).push_back(grid[45]);
+            (grid[46]->getFriends()).push_back(grid[35]);
+            (grid[35]->getFriends()).push_back(grid[44]);
+            (grid[35]->getFriends()).push_back(grid[45]);
+            (grid[35]->getFriends()).push_back(grid[46]);
             blockpos[0] = std::pair<int, int>(4, 0);
             blockpos[1] = std::pair<int, int>(4, 1);
             blockpos[2] = std::pair<int, int>(4, 2);
@@ -136,23 +136,23 @@ int Grid::setDefault() {
         }
     }
     else if (curblock == 'O') {
-        if (grid[44]->c == 'N' && grid[33]->c == 'N' && grid[45]->c == 'N' && grid[34]->c == 'N') {
+        if (grid[44]->returnType() == 'N' && grid[33]->returnType() == 'N' && grid[45]->returnType() == 'N' && grid[34]->returnType() == 'N') {
             grid[44] = new BlockCell(grid[44], 'O');
             grid[33] = new BlockCell(grid[33], 'O');
             grid[45] = new BlockCell(grid[45], 'O');
             grid[34] = new BlockCell(grid[34], 'O');
-            (grid[44]->friends).push_back(grid[33]);
-            (grid[44]->friends).push_back(grid[45]);
-            (grid[44]->friends).push_back(grid[34]);
-            (grid[33]->friends).push_back(grid[44]);
-            (grid[33]->friends).push_back(grid[45]);
-            (grid[33]->friends).push_back(grid[34]);
-            (grid[45]->friends).push_back(grid[44]);
-            (grid[45]->friends).push_back(grid[33]);
-            (grid[45]->friends).push_back(grid[34]);
-            (grid[34]->friends).push_back(grid[44]);
-            (grid[34]->friends).push_back(grid[33]);
-            (grid[34]->friends).push_back(grid[45]);
+            (grid[44]->getFriends()).push_back(grid[33]);
+            (grid[44]->getFriends()).push_back(grid[45]);
+            (grid[44]->getFriends()).push_back(grid[34]);
+            (grid[33]->getFriends()).push_back(grid[44]);
+            (grid[33]->getFriends()).push_back(grid[45]);
+            (grid[33]->getFriends()).push_back(grid[34]);
+            (grid[45]->getFriends()).push_back(grid[44]);
+            (grid[45]->getFriends()).push_back(grid[33]);
+            (grid[45]->getFriends()).push_back(grid[34]);
+            (grid[34]->getFriends()).push_back(grid[44]);
+            (grid[34]->getFriends()).push_back(grid[33]);
+            (grid[34]->getFriends()).push_back(grid[45]);
             blockpos[0] = std::pair<int, int>(4, 0);
             blockpos[1] = std::pair<int, int>(3, 0);
             blockpos[2] = std::pair<int, int>(4, 1);
@@ -164,23 +164,23 @@ int Grid::setDefault() {
         }
     }
     else if (curblock == 'S') {
-        if (grid[44]->c == 'N' && grid[45]->c == 'N' && grid[34]->c == 'N' && grid[35]->c == 'N') {
+        if (grid[44]->returnType() == 'N' && grid[45]->returnType() == 'N' && grid[34]->returnType() == 'N' && grid[35]->returnType() == 'N') {
             grid[44] = new BlockCell(grid[44], 'S');
             grid[45] = new BlockCell(grid[45], 'S');
             grid[34] = new BlockCell(grid[34], 'S');
             grid[35] = new BlockCell(grid[35], 'S');
-            (grid[44]->friends).push_back(grid[45]);
-            (grid[44]->friends).push_back(grid[34]);
-            (grid[44]->friends).push_back(grid[35]);
-            (grid[45]->friends).push_back(grid[44]);
-            (grid[45]->friends).push_back(grid[34]);
-            (grid[45]->friends).push_back(grid[35]);
-            (grid[34]->friends).push_back(grid[44]);
-            (grid[34]->friends).push_back(grid[45]);
-            (grid[34]->friends).push_back(grid[35]);
-            (grid[35]->friends).push_back(grid[44]);
-            (grid[35]->friends).push_back(grid[45]);
-            (grid[35]->friends).push_back(grid[34]);
+            (grid[44]->getFriends()).push_back(grid[45]);
+            (grid[44]->getFriends()).push_back(grid[34]);
+            (grid[44]->getFriends()).push_back(grid[35]);
+            (grid[45]->getFriends()).push_back(grid[44]);
+            (grid[45]->getFriends()).push_back(grid[34]);
+            (grid[45]->getFriends()).push_back(grid[35]);
+            (grid[34]->getFriends()).push_back(grid[44]);
+            (grid[34]->getFriends()).push_back(grid[45]);
+            (grid[34]->getFriends()).push_back(grid[35]);
+            (grid[35]->getFriends()).push_back(grid[44]);
+            (grid[35]->getFriends()).push_back(grid[45]);
+            (grid[35]->getFriends()).push_back(grid[34]);
             blockpos[0] = std::pair<int, int>(4, 0);
             blockpos[1] = std::pair<int, int>(4, 1);
             blockpos[2] = std::pair<int, int>(3, 1);
@@ -192,23 +192,23 @@ int Grid::setDefault() {
         }
     }
     else if (curblock == 'Z') {
-        if (grid[33]->c == 'N' && grid[45]->c == 'N' && grid[34]->c == 'N' && grid[46]->c == 'N') {
+        if (grid[33]->returnType() == 'N' && grid[45]->returnType() == 'N' && grid[34]->returnType() == 'N' && grid[46]->returnType() == 'N') {
             grid[33] = new BlockCell(grid[33], 'Z');
             grid[45] = new BlockCell(grid[45], 'Z');
             grid[34] = new BlockCell(grid[34], 'Z');
             grid[46] = new BlockCell(grid[46], 'Z');
-            (grid[33]->friends).push_back(grid[45]);
-            (grid[33]->friends).push_back(grid[34]);
-            (grid[33]->friends).push_back(grid[46]);
-            (grid[45]->friends).push_back(grid[33]);
-            (grid[45]->friends).push_back(grid[34]);
-            (grid[45]->friends).push_back(grid[46]);
-            (grid[34]->friends).push_back(grid[33]);
-            (grid[34]->friends).push_back(grid[45]);
-            (grid[34]->friends).push_back(grid[46]);
-            (grid[46]->friends).push_back(grid[33]);
-            (grid[46]->friends).push_back(grid[45]);
-            (grid[46]->friends).push_back(grid[34]);
+            (grid[33]->getFriends()).push_back(grid[45]);
+            (grid[33]->getFriends()).push_back(grid[34]);
+            (grid[33]->getFriends()).push_back(grid[46]);
+            (grid[45]->getFriends()).push_back(grid[33]);
+            (grid[45]->getFriends()).push_back(grid[34]);
+            (grid[45]->getFriends()).push_back(grid[46]);
+            (grid[34]->getFriends()).push_back(grid[33]);
+            (grid[34]->getFriends()).push_back(grid[45]);
+            (grid[34]->getFriends()).push_back(grid[46]);
+            (grid[46]->getFriends()).push_back(grid[33]);
+            (grid[46]->getFriends()).push_back(grid[45]);
+            (grid[46]->getFriends()).push_back(grid[34]);
             blockpos[0] = std::pair<int, int>(3, 0);
             blockpos[1] = std::pair<int, int>(4, 1);
             blockpos[2] = std::pair<int, int>(3, 1);
@@ -220,23 +220,23 @@ int Grid::setDefault() {
         }
     }
     else if (curblock == 'T') {
-        if (grid[33]->c == 'N' && grid[45]->c == 'N' && grid[34]->c == 'N' && grid[35]->c == 'N') {
+        if (grid[33]->returnType() == 'N' && grid[45]->returnType() == 'N' && grid[34]->returnType() == 'N' && grid[35]->returnType() == 'N') {
             grid[33] = new BlockCell(grid[33], 'T');
             grid[45] = new BlockCell(grid[45], 'T');
             grid[34] = new BlockCell(grid[34], 'T');
             grid[35] = new BlockCell(grid[35], 'T');
-            (grid[33]->friends).push_back(grid[45]);
-            (grid[33]->friends).push_back(grid[34]);
-            (grid[33]->friends).push_back(grid[35]);
-            (grid[45]->friends).push_back(grid[33]);
-            (grid[45]->friends).push_back(grid[34]);
-            (grid[45]->friends).push_back(grid[35]);
-            (grid[34]->friends).push_back(grid[33]);
-            (grid[34]->friends).push_back(grid[45]);
-            (grid[34]->friends).push_back(grid[35]);
-            (grid[35]->friends).push_back(grid[33]);
-            (grid[35]->friends).push_back(grid[45]);
-            (grid[35]->friends).push_back(grid[34]);
+            (grid[33]->getFriends()).push_back(grid[45]);
+            (grid[33]->getFriends()).push_back(grid[34]);
+            (grid[33]->getFriends()).push_back(grid[35]);
+            (grid[45]->getFriends()).push_back(grid[33]);
+            (grid[45]->getFriends()).push_back(grid[34]);
+            (grid[45]->getFriends()).push_back(grid[35]);
+            (grid[34]->getFriends()).push_back(grid[33]);
+            (grid[34]->getFriends()).push_back(grid[45]);
+            (grid[34]->getFriends()).push_back(grid[35]);
+            (grid[35]->getFriends()).push_back(grid[33]);
+            (grid[35]->getFriends()).push_back(grid[45]);
+            (grid[35]->getFriends()).push_back(grid[34]);
             blockpos[0] = std::pair<int, int>(3, 0);
             blockpos[1] = std::pair<int, int>(4, 1);
             blockpos[2] = std::pair<int, int>(3, 1);
@@ -253,31 +253,31 @@ int Grid::setDefault() {
 }
 
 bool Grid::ifleft() {
-    if (curblock == 'I' && blockpos[0].second > 0 && grid[blockpos[0].first * 11 + blockpos[0].second - 1]->c == 'N') {
+    if (curblock == 'I' && blockpos[0].second > 0 && grid[blockpos[0].first * 11 + blockpos[0].second - 1]->returnType() == 'N') {
         return true;
     }
-    else if (curblock == 'J' && blockpos[0].second > 0 && grid[blockpos[0].first * 11 + blockpos[0].second - 1]->c == 'N' 
-    && grid[blockpos[1].first * 11 + blockpos[1].second - 1]->c == 'N') {
+    else if (curblock == 'J' && blockpos[0].second > 0 && grid[blockpos[0].first * 11 + blockpos[0].second - 1]->returnType() == 'N' 
+    && grid[blockpos[1].first * 11 + blockpos[1].second - 1]->returnType() == 'N') {
         return true;
     }
-    else if (curblock == 'L' && blockpos[0].second > 0 && grid[blockpos[0].first * 11 + blockpos[0].second - 1]->c == 'N'
-    && grid[blockpos[2].first * 11 + blockpos[2].second - 1]->c == 'N') {
+    else if (curblock == 'L' && blockpos[0].second > 0 && grid[blockpos[0].first * 11 + blockpos[0].second - 1]->returnType() == 'N'
+    && grid[blockpos[2].first * 11 + blockpos[2].second - 1]->returnType() == 'N') {
         return true;
     }
-    else if (curblock == 'O' && blockpos[0].second > 0 && grid[blockpos[0].first * 11 + blockpos[0].second - 1]->c == 'N'
-    && grid[blockpos[1].first * 11 + blockpos[1].second - 1]->c == 'N') {
+    else if (curblock == 'O' && blockpos[0].second > 0 && grid[blockpos[0].first * 11 + blockpos[0].second - 1]->returnType() == 'N'
+    && grid[blockpos[1].first * 11 + blockpos[1].second - 1]->returnType() == 'N') {
         return true;
     }
-    else if (curblock == 'S' && blockpos[0].second > 0 && grid[blockpos[0].first * 11 + blockpos[0].second - 1]->c == 'N'
-    && grid[blockpos[2].first * 11 + blockpos[2].second - 1]->c == 'N') {
+    else if (curblock == 'S' && blockpos[0].second > 0 && grid[blockpos[0].first * 11 + blockpos[0].second - 1]->returnType() == 'N'
+    && grid[blockpos[2].first * 11 + blockpos[2].second - 1]->returnType() == 'N') {
         return true;
     }
-    else if (curblock == 'Z' && blockpos[0].second > 0 && grid[blockpos[0].first * 11 + blockpos[0].second - 1]->c == 'N'
-    && grid[blockpos[1].first * 11 + blockpos[1].second - 1]->c == 'N') {
+    else if (curblock == 'Z' && blockpos[0].second > 0 && grid[blockpos[0].first * 11 + blockpos[0].second - 1]->returnType() == 'N'
+    && grid[blockpos[1].first * 11 + blockpos[1].second - 1]->returnType() == 'N') {
         return true;
     }
-    else if (curblock == 'T' && blockpos[0].second > 0 && grid[blockpos[0].first * 11 + blockpos[0].second - 1]->c == 'N'
-    && grid[blockpos[1].first * 11 + blockpos[1].second - 1]->c == 'N') {
+    else if (curblock == 'T' && blockpos[0].second > 0 && grid[blockpos[0].first * 11 + blockpos[0].second - 1]->returnType() == 'N'
+    && grid[blockpos[1].first * 11 + blockpos[1].second - 1]->returnType() == 'N') {
         return true;
     }
     else {
@@ -286,31 +286,31 @@ bool Grid::ifleft() {
 }
 
 bool Grid::ifright() {
-    if (curblock == 'I' && blockpos[3].second < 10 && grid[blockpos[3].first * 11 + blockpos[3].second + 1]->c == 'N') {
+    if (curblock == 'I' && blockpos[3].second < 10 && grid[blockpos[3].first * 11 + blockpos[3].second + 1]->returnType() == 'N') {
         return true;
     }
-    else if (curblock == 'J' && blockpos[3].second < 10 && grid[blockpos[1].first * 11 + blockpos[1].second + 1]->c == 'N'
-    && grid[blockpos[3].first * 11 + blockpos[3].second + 1]->c == 'N') {
+    else if (curblock == 'J' && blockpos[3].second < 10 && grid[blockpos[1].first * 11 + blockpos[1].second + 1]->returnType() == 'N'
+    && grid[blockpos[3].first * 11 + blockpos[3].second + 1]->returnType() == 'N') {
         return true;
     }
-    else if (curblock == 'L' && blockpos[3].second < 10 && grid[blockpos[2].first * 11 + blockpos[2].second + 1]->c == 'N'
-    && grid[blockpos[3].first * 11 + blockpos[3].second + 1]->c == 'N') {
+    else if (curblock == 'L' && blockpos[3].second < 10 && grid[blockpos[2].first * 11 + blockpos[2].second + 1]->returnType() == 'N'
+    && grid[blockpos[3].first * 11 + blockpos[3].second + 1]->returnType() == 'N') {
         return true;
     }
-    else if (curblock == 'O' && blockpos[3].second < 10 && grid[blockpos[2].first * 11 + blockpos[2].second + 1]->c == 'N'
-    && grid[blockpos[3].first * 11 + blockpos[3].second + 1]->c == 'N') {
+    else if (curblock == 'O' && blockpos[3].second < 10 && grid[blockpos[2].first * 11 + blockpos[2].second + 1]->returnType() == 'N'
+    && grid[blockpos[3].first * 11 + blockpos[3].second + 1]->returnType() == 'N') {
         return true;
     }
-    else if (curblock == 'S' && blockpos[3].second < 10 && grid[blockpos[1].first * 11 + blockpos[1].second + 1]->c == 'N'
-    && grid[blockpos[3].first * 11 + blockpos[3].second + 1]->c == 'N') {
+    else if (curblock == 'S' && blockpos[3].second < 10 && grid[blockpos[1].first * 11 + blockpos[1].second + 1]->returnType() == 'N'
+    && grid[blockpos[3].first * 11 + blockpos[3].second + 1]->returnType() == 'N') {
         return true;
     }
-    else if (curblock == 'Z' && blockpos[3].second < 10 && grid[blockpos[2].first * 11 + blockpos[2].second + 1]->c == 'N'
-    && grid[blockpos[3].first * 11 + blockpos[3].second + 1]->c == 'N') {
+    else if (curblock == 'Z' && blockpos[3].second < 10 && grid[blockpos[2].first * 11 + blockpos[2].second + 1]->returnType() == 'N'
+    && grid[blockpos[3].first * 11 + blockpos[3].second + 1]->returnType() == 'N') {
         return true;
     }
-    else if (curblock == 'T' && blockpos[3].second < 10 && grid[blockpos[1].first * 11 + blockpos[1].second + 1]->c == 'N'
-    && grid[blockpos[3].first * 11 + blockpos[3].second + 1]->c == 'N') {
+    else if (curblock == 'T' && blockpos[3].second < 10 && grid[blockpos[1].first * 11 + blockpos[1].second + 1]->returnType() == 'N'
+    && grid[blockpos[3].first * 11 + blockpos[3].second + 1]->returnType() == 'N') {
         return true;
     }
     else {
@@ -319,39 +319,39 @@ bool Grid::ifright() {
 }
 
 bool Grid::ifdown() {
-    if (curblock == 'I' && blockpos[0].first < 17 && grid[blockpos[0].first * 11 + blockpos[0].second + 11]->c == 'N'
-    && grid[blockpos[1].first * 11 + blockpos[1].second + 11]->c == 'N'
-    && grid[blockpos[2].first * 11 + blockpos[2].second + 11]->c == 'N'
-    && grid[blockpos[3].first * 11 + blockpos[3].second + 11]->c == 'N') {
+    if (curblock == 'I' && blockpos[0].first < 17 && grid[blockpos[0].first * 11 + blockpos[0].second + 11]->returnType() == 'N'
+    && grid[blockpos[1].first * 11 + blockpos[1].second + 11]->returnType() == 'N'
+    && grid[blockpos[2].first * 11 + blockpos[2].second + 11]->returnType() == 'N'
+    && grid[blockpos[3].first * 11 + blockpos[3].second + 11]->returnType() == 'N') {
         return true;
     }
-    else if (curblock == 'J' && blockpos[0].first < 17 && grid[blockpos[0].first * 11 + blockpos[0].second + 11]->c == 'N'
-    && grid[blockpos[2].first * 11 + blockpos[2].second + 11]->c == 'N'
-    && grid[blockpos[3].first * 11 + blockpos[3].second + 11]->c == 'N') {
+    else if (curblock == 'J' && blockpos[0].first < 17 && grid[blockpos[0].first * 11 + blockpos[0].second + 11]->returnType() == 'N'
+    && grid[blockpos[2].first * 11 + blockpos[2].second + 11]->returnType() == 'N'
+    && grid[blockpos[3].first * 11 + blockpos[3].second + 11]->returnType() == 'N') {
         return true;
     }
-    else if (curblock == 'L' && blockpos[0].first < 17 && grid[blockpos[0].first * 11 + blockpos[0].second + 11]->c == 'N'
-    && grid[blockpos[1].first * 11 + blockpos[1].second + 11]->c == 'N'
-    && grid[blockpos[2].first * 11 + blockpos[2].second + 11]->c == 'N') {
+    else if (curblock == 'L' && blockpos[0].first < 17 && grid[blockpos[0].first * 11 + blockpos[0].second + 11]->returnType() == 'N'
+    && grid[blockpos[1].first * 11 + blockpos[1].second + 11]->returnType() == 'N'
+    && grid[blockpos[2].first * 11 + blockpos[2].second + 11]->returnType() == 'N') {
         return true;
     }
-    else if (curblock == 'O' && blockpos[0].first < 17 && grid[blockpos[0].first * 11 + blockpos[0].second + 11]->c == 'N'
-    && grid[blockpos[2].first * 11 + blockpos[2].second + 11]->c == 'N') {
+    else if (curblock == 'O' && blockpos[0].first < 17 && grid[blockpos[0].first * 11 + blockpos[0].second + 11]->returnType() == 'N'
+    && grid[blockpos[2].first * 11 + blockpos[2].second + 11]->returnType() == 'N') {
         return true;
     }
-    else if (curblock == 'S' && blockpos[0].first < 17 && grid[blockpos[0].first * 11 + blockpos[0].second + 11]->c == 'N'
-    && grid[blockpos[1].first * 11 + blockpos[1].second + 11]->c == 'N'
-    && grid[blockpos[3].first * 11 + blockpos[3].second + 11]->c == 'N') {
+    else if (curblock == 'S' && blockpos[0].first < 17 && grid[blockpos[0].first * 11 + blockpos[0].second + 11]->returnType() == 'N'
+    && grid[blockpos[1].first * 11 + blockpos[1].second + 11]->returnType() == 'N'
+    && grid[blockpos[3].first * 11 + blockpos[3].second + 11]->returnType() == 'N') {
         return true;
     }
-    else if (curblock == 'Z' && blockpos[1].first < 17 && grid[blockpos[0].first * 11 + blockpos[0].second + 11]->c == 'N'
-    && grid[blockpos[1].first * 11 + blockpos[1].second + 11]->c == 'N'
-    && grid[blockpos[3].first * 11 + blockpos[3].second + 11]->c == 'N') {
+    else if (curblock == 'Z' && blockpos[1].first < 17 && grid[blockpos[0].first * 11 + blockpos[0].second + 11]->returnType() == 'N'
+    && grid[blockpos[1].first * 11 + blockpos[1].second + 11]->returnType() == 'N'
+    && grid[blockpos[3].first * 11 + blockpos[3].second + 11]->returnType() == 'N') {
         return true;
     }
-    else if (curblock == 'T' && blockpos[1].first < 17 && grid[blockpos[0].first * 11 + blockpos[0].second + 11]->c == 'N'
-    && grid[blockpos[1].first * 11 + blockpos[1].second + 11]->c == 'N'
-    && grid[blockpos[3].first * 11 + blockpos[3].second + 11]->c == 'N') {
+    else if (curblock == 'T' && blockpos[1].first < 17 && grid[blockpos[0].first * 11 + blockpos[0].second + 11]->returnType() == 'N'
+    && grid[blockpos[1].first * 11 + blockpos[1].second + 11]->returnType() == 'N'
+    && grid[blockpos[3].first * 11 + blockpos[3].second + 11]->returnType() == 'N') {
         return true;
     }
     else {
@@ -403,7 +403,7 @@ void Grid::rowScore() {
     int point = 0;
     for (int i = 17; i >= 3; --i) {
         for (int j = 0; j < 11; ++j) {
-            if (grid[i * 11 + j]->c == 'N') {
+            if (grid[i * 11 + j]->returnType() == 'N') {
                 full = false;
                 break;
             }
@@ -418,16 +418,16 @@ void Grid::rowScore() {
 
 void Grid::rowDelete(int num) {
     for (int i = 0; i < 11; ++i) {
-        if (grid[num * 11 + i]->friends[0] == nullptr && grid[num * 11 + i]->friends[1] == nullptr
-        && grid[num * 11 + i]->friends[2] == nullptr) {
+        if (grid[num * 11 + i]->getFriends()[0] == nullptr && grid[num * 11 + i]->getFriends()[1] == nullptr
+        && grid[num * 11 + i]->getFriends()[2] == nullptr) {
             score+=1;
         }
         for (int x = 0; x < 3; ++x) {
-            if (grid[num * 11 + i]->friends[x] != nullptr) {
-		    if(!(grid[num * 11 + i]->friends[x]->friends.empty())) {
+            if (grid[num * 11 + i]->getFriends()[x] != nullptr) {
+		    if(!(grid[num * 11 + i]->getFriends()[x]->getFriends().empty())) {
 			    for (int y = 0; y < 3; ++y) {
-				    if (grid[num * 11 + i]->friends[x]->friends[y] == grid[num * 11 + i]) {
-					    grid[num * 11 + i]->friends[x]->friends[y] = nullptr;
+				    if (grid[num * 11 + i]->getFriends()[x]->getFriends()[y] == grid[num * 11 + i]) {
+					    grid[num * 11 + i]->getFriends()[x]->getFriends()[y] = nullptr;
 				    }
 			    }
 		    }
@@ -446,7 +446,7 @@ void Grid::rowsDelete() {
     bool full = true;
     for (int i = 17; i >= 3; --i) {
         for (int j = 0; j < 11; ++j) {
-            if (grid[i * 11 + j]->c == 'N') {
+            if (grid[i * 11 + j]->returnType() == 'N') {
                 full = false;
                 break;
             }

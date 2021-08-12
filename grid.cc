@@ -69,10 +69,10 @@ int Grid::setDefault() {
             (grid[36]->getFriends()).push_back(grid[33]);
             (grid[36]->getFriends()).push_back(grid[34]);
             (grid[36]->getFriends()).push_back(grid[35]);
-            blockpos[0] = std::pair<int, int>(3, 0);
-            blockpos[1] = std::pair<int, int>(3, 1);
-            blockpos[2] = std::pair<int, int>(3, 2);
-            blockpos[3] = std::pair<int, int>(3, 3);
+            blockpos.push_back(std::make_pair(3, 0));
+            blockpos.push_back(std::make_pair(3, 1));
+            blockpos.push_back(std::make_pair(3, 2));
+            blockpos.push_back(std::make_pair(3, 3));
             return 1;
         }
         else {
@@ -97,10 +97,10 @@ int Grid::setDefault() {
             (grid[46]->getFriends()).push_back(grid[33]);
             (grid[46]->getFriends()).push_back(grid[44]);
             (grid[46]->getFriends()).push_back(grid[45]);
-            blockpos[0] = std::pair<int, int>(4, 0);
-            blockpos[1] = std::pair<int, int>(3, 0);
-            blockpos[2] = std::pair<int, int>(4, 1);
-            blockpos[3] = std::pair<int, int>(4, 2);
+            blockpos.push_back(std::make_pair(4, 0));
+            blockpos.push_back(std::make_pair(3, 0));
+            blockpos.push_back(std::make_pair(4, 1));
+            blockpos.push_back(std::make_pair(4, 2));
             return 1;
         }
         else {
@@ -125,10 +125,10 @@ int Grid::setDefault() {
             (grid[35]->getFriends()).push_back(grid[44]);
             (grid[35]->getFriends()).push_back(grid[45]);
             (grid[35]->getFriends()).push_back(grid[46]);
-            blockpos[0] = std::pair<int, int>(4, 0);
-            blockpos[1] = std::pair<int, int>(4, 1);
-            blockpos[2] = std::pair<int, int>(4, 2);
-            blockpos[3] = std::pair<int, int>(3, 2);
+            blockpos.push_back(std::make_pair(4, 0));
+            blockpos.push_back(std::make_pair(4, 1));
+            blockpos.push_back(std::make_pair(4, 2));
+            blockpos.push_back(std::make_pair(3, 2));
             return 1;
         }
         else {
@@ -153,10 +153,10 @@ int Grid::setDefault() {
             (grid[34]->getFriends()).push_back(grid[44]);
             (grid[34]->getFriends()).push_back(grid[33]);
             (grid[34]->getFriends()).push_back(grid[45]);
-            blockpos[0] = std::pair<int, int>(4, 0);
-            blockpos[1] = std::pair<int, int>(3, 0);
-            blockpos[2] = std::pair<int, int>(4, 1);
-            blockpos[3] = std::pair<int, int>(3, 1);
+            blockpos.push_back(std::make_pair(4, 0));
+            blockpos.push_back(std::make_pair(3, 0));
+            blockpos.push_back(std::make_pair(4, 1));
+            blockpos.push_back(std::make_pair(3, 1));
             return 1;
         }
         else {
@@ -181,10 +181,10 @@ int Grid::setDefault() {
             (grid[35]->getFriends()).push_back(grid[44]);
             (grid[35]->getFriends()).push_back(grid[45]);
             (grid[35]->getFriends()).push_back(grid[34]);
-            blockpos[0] = std::pair<int, int>(4, 0);
-            blockpos[1] = std::pair<int, int>(4, 1);
-            blockpos[2] = std::pair<int, int>(3, 1);
-            blockpos[3] = std::pair<int, int>(3, 2);
+            blockpos.push_back(std::make_pair(4, 0));
+            blockpos.push_back(std::make_pair(4, 1));
+            blockpos.push_back(std::make_pair(3, 1));
+            blockpos.push_back(std::make_pair(3, 2));
             return 1;
         }
         else {
@@ -209,10 +209,10 @@ int Grid::setDefault() {
             (grid[46]->getFriends()).push_back(grid[33]);
             (grid[46]->getFriends()).push_back(grid[45]);
             (grid[46]->getFriends()).push_back(grid[34]);
-            blockpos[0] = std::pair<int, int>(3, 0);
-            blockpos[1] = std::pair<int, int>(4, 1);
-            blockpos[2] = std::pair<int, int>(3, 1);
-            blockpos[3] = std::pair<int, int>(4, 2);
+            blockpos.push_back(std::make_pair(3, 0));
+            blockpos.push_back(std::make_pair(4, 1));
+            blockpos.push_back(std::make_pair(3, 1));
+            blockpos.push_back(std::make_pair(4, 2));
             return 1;
         }
         else {
@@ -237,10 +237,10 @@ int Grid::setDefault() {
             (grid[35]->getFriends()).push_back(grid[33]);
             (grid[35]->getFriends()).push_back(grid[45]);
             (grid[35]->getFriends()).push_back(grid[34]);
-            blockpos[0] = std::pair<int, int>(3, 0);
-            blockpos[1] = std::pair<int, int>(4, 1);
-            blockpos[2] = std::pair<int, int>(3, 1);
-            blockpos[3] = std::pair<int, int>(3, 2);
+            blockpos.push_back(std::make_pair(3, 0));
+            blockpos.push_back(std::make_pair(4, 1));
+            blockpos.push_back(std::make_pair(3, 1));
+            blockpos.push_back(std::make_pair(3, 2));
             return 1;
         }
         else {
@@ -396,6 +396,7 @@ void Grid::drop() {
     while (ifdown() == true) {
         down();
     }
+    blockpos.clear();
 }
 
 void Grid::rowScore() {

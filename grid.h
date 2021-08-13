@@ -33,6 +33,7 @@ struct Grid {
     void rowDelete(int num);
     void rowsDelete();
     void update();
+    void deblock();
     void printNext1();
     void printNext2();
 };

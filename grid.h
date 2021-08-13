@@ -20,6 +20,8 @@ struct Grid {
     std::vector<char>sequence;
     Grid(string file);
     ~Grid();
+    void renewp1();
+    void renewp2();
     int getScore();
     void initialize();
     int setDefault();

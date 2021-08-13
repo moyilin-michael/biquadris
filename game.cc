@@ -12,6 +12,23 @@ Game::~Game() {
     delete player2;
 }
 
+void Game::renewp1() {
+	if (player1 != nullptr) {
+		string s1 = player1->infile;
+	        delete player1;
+	        player1 = new Grid(s1);
+	}
+}
+
+void Game::renewp2() {
+	if (player2 != nullptr) {
+		string s2 = player2->infile;
+	        delete player2;
+	        player2 = new Grid(s2);
+	}
+}
+	
+
 void Game::printGame(){
     cout << "Level:    " << player1->level << "     " << "Level:    " << player2->level << endl;
     cout << "Score:    " << player1->score << "     " << "Score:    " << player2->score << endl;

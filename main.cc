@@ -201,16 +201,18 @@ int main(int argc, char *argv[])
 					else if (sinput[1] == 'e')
 					{
 						if (time > 0) {
-							delete game;
-							game = nullptr;
-							game = new Game();
-							player1 = game->getPlayer1();
-							player2 = game->getPlayer2();
-							turn = 1;
-							player1->initialize();
-							player2->initialize();
-							player1->setDefault();
-							player2->setDefault();
+							if (turn == 1) {
+								game->renewp1();
+								player1 = game->getPlayer1();
+								player1->initialize();
+								player1->setDefault();
+							}
+							else {
+								game->renewp2();
+								player2 = game->getPlayer2();
+								player2->initialize();
+								player2->setDefault();
+							}
 						}
 						game->printGame();
 					}

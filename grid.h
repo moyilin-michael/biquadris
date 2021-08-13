@@ -20,6 +20,7 @@ struct Grid {
     std::vector<char>sequence;
     Grid(string file);
     ~Grid();
+    int getScore();
     void initialize();
     int setDefault();
     bool ifleft();

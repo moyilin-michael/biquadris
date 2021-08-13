@@ -25,10 +25,6 @@ struct Grid {
     bool ifleft();
     bool ifright();
     bool ifdown();
-    bool ifclock();
-    bool ifanti();
-    void clock();
-    void anti();
     void left();
     void right();
     void down();

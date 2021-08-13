@@ -24,6 +24,10 @@ Grid::~Grid() {
     sequence.clear();
 }
 
+int Grid::getScore() {
+    return score;
+}
+
 void Grid::initialize() {
     sequence.clear();
     ifstream inf{infile};

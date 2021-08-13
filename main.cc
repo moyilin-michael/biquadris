@@ -15,6 +15,8 @@ using namespace std;
 int main(int argc, char *argv[])
 {
 	int turn = 1;
+	int hi = 0;
+	int time = 1;
 	Game* game = new Game();
 	string scriptfile1 = "";
 	string scriptfile2 = "";
@@ -30,9 +32,6 @@ int main(int argc, char *argv[])
 				scriptfile1 = argv[start + 1];
 				player1->infile = scriptfile1;
 				start++;
-				/*player1->cLevel->updateSeq(scriptfile1);
-				player1->setcurrentblock(player1->cLevel->currentc);
-				player1->setnextblock(player1->cLevel->nextc); */
 			}
 
 			if (strcmp(argv[start], "-scriptfile2") == 0)
@@ -40,27 +39,8 @@ int main(int argc, char *argv[])
 				scriptfile2 = argv[start + 1];
 				player2->infile = scriptfile2;
 				start++;
-				/*player2->cLevel->updateSeq(scriptfile2);	//
-                    player2->setcurrentblock(player2->cLevel->currentc);
-                    player2->setnextblock(player2->cLevel->nextc); */
 			}
 
-			/*if (argv[start] == "-startlevel")
-			{
-				int newlevel = stoi(argv[counter + 1]);
-			    player1->leveln = newlevel;
-			    player2->leveln = newlevel;
-			}*/
-
-			/*if (argv[start] == "-seed")
-			{
-				seed = stoi(argv[counter + 1]);
-			}*/
-
-			/*if (argv[start] == "-text")
-			{
-				iftext = true;
-			}*/
 		}
 	}
 	
@@ -95,48 +75,27 @@ int main(int argc, char *argv[])
 
 		int i = 0;
 		while (i != lst.size())
-		{ /*string sinput = lst[lst.size() - 1];
-				int times = 0;
-				int i = 0;
-				while (true)
-				{
-					if (times[i] <= '9' && times[i] >= '0')
-					{
-						times += (times[i] - '0') *pow(10, i);
-						i++;
-					}
-					else
-					{
-						break;
-					}
-				}
-
-				if (times == 0)
-				{
-					times = 1;
-				}
-
-				string inputaction = sinput.substr(i);
-				char c = inputaction[0]; */
-
+		{ 
 			string sinput = lst[i];
+			int numcount = 0;
+			for (int j = 0; j < sinput.length(); ++j) {
+				if (sinput[j] >= 48 && sinput[j] <= 57) {
+					numcount++;
+				}
+				else {
+					break;
+				}
+			}
+			
+			if (numcount > 0) {
+				time = stoi(sinput.substr(0, numcount - 1));
+				sinput = sinput.substr(numcount, sinput.length() - 1);
+			}
 			char c = sinput[0];
-
-			/*if ((c == 'I') || (c == 'J') || (c == 'L') || (c == '0') || (c == 'S') || (c == 'Z') || (c == 'T'))
-			{
-				if (turn == 1)
-				{
-					player1->setcurrentblock(c);
-					lst.pop_back();
-					game->printGame();
-				}
-				else
-				{
-					player2->setcurrentblock(c);
-					lst.pop_back();
-					game->printGame();
-				}
-			}*/
+			
+			if(time == 0) {
+				continue;
+			}
 
 			if (c == 'l')
 			{
@@ -148,16 +107,17 @@ int main(int argc, char *argv[])
 				{
 					if (sinput[2] == 'f')
 					{
-						if (turn == 1)
-						{
-							player1->left();
-							game->printGame();
+						for (int a = 0; a < time; ++a) {
+							if (turn == 1)
+						        {
+							     player1->left();
+						        }
+						        else
+						        {
+							     player2->left();
+						        }
 						}
-						else
-						{
-							player2->left();
-							game->printGame();
-						}
+						game->printGame();
 					}
 				}
 
@@ -165,30 +125,32 @@ int main(int argc, char *argv[])
 				{
 					if (sinput[5] == 'd')
 					{
-						if (turn == 1)
-						{
-							player1->level -= 1;
-							game->printGame();
+						for (int b = 0; b < time; ++b) {
+							if (turn == 1)
+						        {
+							     player1->level -= 1;
+						        }
+						        else
+						        {
+							     player2->level -= 1;
+						        }
 						}
-						else
-						{
-							player2->level -= 1;
-							game->printGame();
-						}
+						game->printGame();
 					}
 
 					if (sinput[5] == 'u')
 					{
-						if (turn == 1)
-						{
-							player1->level += 1;
-							game->printGame();
+						for (int c = 0; c < time; ++c) {
+							if (turn == 1)
+						        {
+							     player1->level += 1;
+						        }
+						        else
+						        {
+							     player2->level += 1;
+						        }
 						}
-						else
-						{
-							player2->level += 1;
-							game->printGame();
-						}
+						game->printGame();
 					}
 				}
 			}
@@ -196,23 +158,22 @@ int main(int argc, char *argv[])
 			{
 			 	//right
 				//restart
-				//random
 
 				if (sinput.length() >= 2)
 				{
 					if (sinput[1] == 'i')
 					{
-						//cout << "turn:" << turn << endl;
-						if (turn == 1)
-						{
-							player1->right();
-							game->printGame();
+						for (int d = 0; d < time; ++d) {
+							if (turn == 1)
+						        {
+							     player1->right();
+						        }
+						        else
+						        {
+							     player2->right();
+						        }
 						}
-						else
-						{
-							player2->right();
-							game->printGame();
-						}
+						game->printGame();
 					}
 					else if (sinput[1] == 'e')
 					{
@@ -238,49 +199,56 @@ int main(int argc, char *argv[])
 				{
 					if (sinput[1] == 'o')
 					{
-						if (turn == 1)
-						{
-							player1->down();
-							game->printGame();
+						for (int e = 0; e < time; ++e) {
+							if (turn == 1)
+						        {
+							     player1->down();
+						        }
+						        else
+						        {
+							     player2->down();
+						        }
 						}
-						else
-						{
-							player2->down();
-							game->printGame();
-						}
+						game->printGame();
 					}
 					else if (sinput[1] == 'r')
 					{
 						if (turn == 1)
 						{
-							player1->drop();
-							player1->rowScore();
-							player1->rowsDelete();
-							player1->update();
-							int n = player1->setDefault();
-							if (n == 0) {
-								string winmessage = "Game is over - Player 2 wins!";
-				                                cout << winmessage << std::endl;
-				                                delete game;
-				                                game = nullptr;
-								return 1;
+							for (int f = 0; f < time; ++f) {
+								player1->drop();
+							        player1->rowScore();
+							        player1->rowsDelete();
+							        hi = max(hi, max(player1->getScore(), player2->getScore()));
+							        player1->update();
+							        int n = player1->setDefault();
+							        if (n == 0) {
+								     string winmessage = "Game is over - Player 2 wins!";
+				                                     cout << winmessage << std::endl;
+				                                     delete game;
+				                                     game = nullptr;
+								     return 1;
+							        }
 							}
 							turn = 2;
 							game->printGame();	//
 						}
 						else
 						{
-							player2->drop();
-							player2->rowScore();
-							player2->rowsDelete();
-							player2->update();
-							int m = player2->setDefault();
-							if (m == 0) {
-								string winmessage = "Game is over - Player 1 wins!";
-				                                cout << winmessage << std::endl;
-				                                delete game;
-				                                game = nullptr;
-								return 1;
+							for (int g = 0; g < time; ++g) {
+								player2->drop();
+							        player2->rowScore();
+							        player2->rowsDelete();
+							        hi = max(hi, max(player1->getScore(), player2->getScore()));
+							        player2->update();
+							        int m = player2->setDefault();
+							        if (m == 0) {
+								     string winmessage = "Game is over - Player 1 wins!";
+				                                     cout << winmessage << std::endl;
+				                                     delete game;
+				                                     game = nullptr;
+								     return 1;
+							        }
 							}
 							turn = 1;
 							game->printGame();	//
@@ -288,26 +256,7 @@ int main(int argc, char *argv[])
 					}
 				}
 			}
-			
-			
-			/*if (player1->checklose() == true)
-			{
-				string winmessage = "Game is over - Player 2 wins!";
-				cout << winmessage << std::endl;
-				delete game;
-				game = nullptr;
-				win = true;
-				break;
-			}
-			else if (player2->checklose() == true)
-			{
-				string winmessage = "Game is over - Player 1 wins!";
-				cout << winmessage << std::endl;
-				delete game;
-				game = nullptr;
-				win = true;
-				break;
-			}*/
+			time = 1;
 			i++;
 		}
 		lst.clear();

@@ -9,6 +9,8 @@ struct Game {
     Game();
     ~Game();
     void printGame();
+    void renewp1();
+    void renewp2();
     Grid* getPlayer1();
     Grid* getPlayer2();
 };
